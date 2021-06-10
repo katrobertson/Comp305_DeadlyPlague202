@@ -12,6 +12,15 @@ public class PlayerMovement : MonoBehaviour
 
     private Vector2 movement;
 
+    [Header("Minimap")]
+    public GameObject miniMap;
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        miniMap.SetActive(false);
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -21,6 +30,12 @@ public class PlayerMovement : MonoBehaviour
         animator.SetFloat("Horizontal", movement.x);
         animator.SetFloat("Vertical", movement.y);
         animator.SetFloat("Speed", movement.sqrMagnitude);
+
+        if (Input.GetKeyDown(KeyCode.M))
+        {
+            //toggle the Minimap on/off
+            miniMap.SetActive(!miniMap.activeInHierarchy);
+        }
 
     }
 

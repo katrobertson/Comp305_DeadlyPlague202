@@ -8,4 +8,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MainScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    guid: 60b993b20df303543a97741e3ccd2a07
+    path: Assets/Scenes/Vamsi's Scene.unity
   m_configObjects: {}
