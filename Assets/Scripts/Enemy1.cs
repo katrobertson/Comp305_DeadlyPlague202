@@ -14,6 +14,8 @@ public class Enemy1 : MonoBehaviour
     private Vector2 currentPos;
     public float distance;
 
+    public PlayerMovement playerMovement;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -49,6 +51,9 @@ public class Enemy1 : MonoBehaviour
 
     void moveCharacter(Vector2 direction)
     {
-        rb.MovePosition((Vector2)transform.position + (direction * moveSpeed * Time.fixedDeltaTime));
+        if (!playerMovement.getFaceMask())
+        {
+            rb.MovePosition((Vector2)transform.position + (direction * moveSpeed * Time.fixedDeltaTime));
+        }
     }
 }

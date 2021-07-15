@@ -17,13 +17,22 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("Minimap")]
     public GameObject miniMap;
+    [Header("FaceMask")]
+    public GameObject faceMask;
+    public bool isfaceMask = false;
 
     public Text Finish;
+
+    public HealthBar healthbar;
+    public int maxHealth = 100;
+    public int currentHealth;
 
     // Start is called before the first frame update
     void Start()
     {
         miniMap.SetActive(false);
+        healthbar.SetMaxHealth(maxHealth);
+        currentHealth = maxHealth;
     }
 
     // Update is called once per frame
@@ -46,6 +55,7 @@ public class PlayerMovement : MonoBehaviour
             miniMap.SetActive(!miniMap.activeInHierarchy);
         }
 
+        faceMask.SetActive(isfaceMask);
     }
 
     private void FixedUpdate()
@@ -63,5 +73,32 @@ public class PlayerMovement : MonoBehaviour
         {
             Finish.gameObject.SetActive(true);
         }
+        
+        if (collision.gameObject.tag == "Enemy1")
+        {
+            currentHealth = currentHealth - 10;
+            healthbar.SetHealth(currentHealth);
+        }
+
+        if (collision.gameObject.tag == "Mask")
+        {
+            //Debug.Log(System.DateTime.Now);
+            Destroy(collision.gameObject);
+            isfaceMask = true;
+            StartCoroutine(ResetMask());
+        }
+    }
+
+    //Powerup Timer
+    private IEnumerator ResetMask()
+    {
+        yield return new WaitForSeconds(10);
+        isfaceMask = false;
+        //Debug.Log(System.DateTime.Now);
+    }
+
+    public bool getFaceMask()
+    {
+        return isfaceMask;
     }
 }
