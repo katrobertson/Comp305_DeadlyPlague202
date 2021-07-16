@@ -97,6 +97,7 @@ public class PlayerMovement : MonoBehaviour
         //Debug.Log(System.DateTime.Now);
     }
 
+    //Return facemask status
     public bool getFaceMask()
     {
         return isfaceMask;
