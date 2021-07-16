@@ -22,10 +22,15 @@ public class PlayerMovement : MonoBehaviour
     public bool isfaceMask = false;
 
     public Text Finish;
+    public Text GroceriesCollect;
 
     public HealthBar healthbar;
     public int maxHealth = 100;
     public int currentHealth;
+
+    public int Groceries = 0;
+    public GameObject SanitizerGun;
+    public GameObject End;
 
     // Start is called before the first frame update
     void Start()
@@ -33,6 +38,8 @@ public class PlayerMovement : MonoBehaviour
         miniMap.SetActive(false);
         healthbar.SetMaxHealth(maxHealth);
         currentHealth = maxHealth;
+        SanitizerGun.SetActive(false);
+        End.SetActive(false);
     }
 
     // Update is called once per frame
@@ -56,6 +63,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
         faceMask.SetActive(isfaceMask);
+
     }
 
     private void FixedUpdate()
@@ -71,6 +79,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if(collision.gameObject.tag == "Finish")
         {
+            Debug.Log("Level Completed");
             Finish.gameObject.SetActive(true);
         }
         
@@ -80,12 +89,34 @@ public class PlayerMovement : MonoBehaviour
             healthbar.SetHealth(currentHealth);
         }
 
+        if (collision.gameObject.tag == "EnemyDanger")
+        {
+            currentHealth = currentHealth - 50;
+            healthbar.SetHealth(currentHealth);
+        }
+
         if (collision.gameObject.tag == "Mask")
         {
-            //Debug.Log(System.DateTime.Now);
             Destroy(collision.gameObject);
             isfaceMask = true;
             StartCoroutine(ResetMask());
+        }
+
+        if (collision.gameObject.tag == "Groceries")
+        {
+            Destroy(collision.gameObject);
+            Groceries += 1;
+            GroceriesCollect.text = (Groceries + "/10");
+            if (Groceries > 10)
+            {
+                End.SetActive(true);
+            }
+        }
+
+        if (collision.gameObject.tag == "Sanitizer")
+        {
+            Destroy(collision.gameObject);
+            SanitizerGun.SetActive(true);
         }
     }
 

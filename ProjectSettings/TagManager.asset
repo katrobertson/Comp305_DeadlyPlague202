@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Enemy1
   - Mask
+  - EnemyDanger
+  - Groceries
+  - Sanitizer
   layers:
   - Default
   - TransparentFX
@@ -14,9 +17,9 @@ TagManager:
   - Water
   - UI
   - 
-  - 
-  - 
-  - 
+  - Enemy2
+  - Enemy3
+  - SprayGun
   - 
   - 
   - 
