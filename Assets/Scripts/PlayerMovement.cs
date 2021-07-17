@@ -32,14 +32,16 @@ public class PlayerMovement : MonoBehaviour
     public GameObject SanitizerGun;
     public GameObject End;
 
+    public GameObject gameoverMenuUI;
+
     // Start is called before the first frame update
     void Start()
     {
         miniMap.SetActive(false);
         healthbar.SetMaxHealth(maxHealth);
         currentHealth = maxHealth;
-        SanitizerGun.SetActive(false);
-        End.SetActive(false);
+        //SanitizerGun.SetActive(false);
+        //End.SetActive(false);
     }
 
     // Update is called once per frame
@@ -64,6 +66,7 @@ public class PlayerMovement : MonoBehaviour
 
         faceMask.SetActive(isfaceMask);
 
+
     }
 
     private void FixedUpdate()
@@ -87,12 +90,20 @@ public class PlayerMovement : MonoBehaviour
         {
             currentHealth = currentHealth - 10;
             healthbar.SetHealth(currentHealth);
+            if (currentHealth == 0)
+            {
+                GameOver();
+            }
         }
 
         if (collision.gameObject.tag == "EnemyDanger")
         {
             currentHealth = currentHealth - 50;
             healthbar.SetHealth(currentHealth);
+            if (currentHealth <= 0)
+            {
+                GameOver();
+            }
         }
 
         if (collision.gameObject.tag == "Mask")
@@ -132,5 +143,12 @@ public class PlayerMovement : MonoBehaviour
     public bool getFaceMask()
     {
         return isfaceMask;
+    }
+
+    public void GameOver()
+    {
+        gameoverMenuUI.SetActive(true);
+        Time.timeScale = 0f;
+
     }
 }
