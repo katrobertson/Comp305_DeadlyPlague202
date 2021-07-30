@@ -58,4 +58,12 @@ public class PauseScript : MonoBehaviour
     {
         Application.Quit();
     }
+
+    public void NextLevel()
+    {
+        if (SceneManager.GetActiveScene().buildIndex != 3)
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        else
+            LoadMenu();
+    }
 }

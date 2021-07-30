@@ -8,7 +8,11 @@ TagManager:
   - Mask
   - EnemyDanger
   - Groceries
-  - Sanitizer
+  - SanitizerBlue
+  - SanitizerGreen
+  - AlienSpaceShip
+  - BulletsBlue
+  - BulletsGreen
   layers:
   - Default
   - TransparentFX
@@ -16,11 +20,11 @@ TagManager:
   - 
   - Water
   - UI
-  - 
+  - Enemy1
   - Enemy2
   - Enemy3
   - SprayGun
-  - 
+  - AlienShip
   - 
   - 
   - 

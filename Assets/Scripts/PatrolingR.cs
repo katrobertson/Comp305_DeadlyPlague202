@@ -16,11 +16,13 @@ public class PatrolingR : MonoBehaviour
         {
             transform.localScale = new Vector2(-1.0f, transform.localScale.y);
             GetComponent<Rigidbody2D>().velocity = new Vector2(-moveSpeed, 0f);
+            //Debug.Log("Transform read");
         }
         else if(transform.position.x < boundaries.x)
         {
             transform.localScale = new Vector2(1.0f, transform.localScale.y);
             GetComponent<Rigidbody2D>().velocity = new Vector2(moveSpeed, 0f);
+            //Debug.Log("Transform read");
         }
 
     }

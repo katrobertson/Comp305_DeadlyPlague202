@@ -365,13 +365,19 @@ MonoBehaviour:
   moveSpeed: 5
   rb: {fileID: 8254459639434752493}
   animator: {fileID: 8254459639434752491}
-  miniMap: {fileID: 8254459639142236044}
+  miniMap: {fileID: 0}
   faceMask: {fileID: 934633499}
   isfaceMask: 0
   Finish: {fileID: 0}
+  GroceriesCollect: {fileID: 0}
   healthbar: {fileID: 0}
   maxHealth: 100
   currentHealth: 0
+  Groceries: 0
+  SanitizerGun: {fileID: 0}
+  End: {fileID: 0}
+  gameoverMenuUI: {fileID: 0}
+  levelCompleteUI: {fileID: 0}
 --- !u!95 &8254459639434752491
 Animator:
   serializedVersion: 3

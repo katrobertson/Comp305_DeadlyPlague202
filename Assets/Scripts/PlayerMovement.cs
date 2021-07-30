@@ -33,6 +33,8 @@ public class PlayerMovement : MonoBehaviour
     public GameObject End;
 
     public GameObject gameoverMenuUI;
+    public GameObject levelCompleteUI;
+
 
     // Start is called before the first frame update
     void Start()
@@ -82,15 +84,17 @@ public class PlayerMovement : MonoBehaviour
     {
         if(collision.gameObject.tag == "Finish")
         {
-            Debug.Log("Level Completed");
-            Finish.gameObject.SetActive(true);
+            //Debug.Log("Level Completed");
+            //Finish.gameObject.SetActive(true);
+            LevelCompleted();
+
         }
         
         if (collision.gameObject.tag == "Enemy1")
         {
             currentHealth = currentHealth - 10;
             healthbar.SetHealth(currentHealth);
-            if (currentHealth == 0)
+            if (currentHealth <= 0)
             {
                 GameOver();
             }
@@ -124,10 +128,18 @@ public class PlayerMovement : MonoBehaviour
             }
         }
 
-        if (collision.gameObject.tag == "Sanitizer")
+        if (collision.gameObject.tag == "SanitizerBlue")
         {
             Destroy(collision.gameObject);
-            SanitizerGun.SetActive(true);
+            SanitizerGun.GetComponent<Shooting>().state = 1;
+        }
+
+        if (collision.gameObject.tag == "SanitizerGreen")
+        {
+            Destroy(collision.gameObject);
+            SanitizerGun.GetComponent<Shooting>().state = 2;
+            StartCoroutine(ResetPower());
+
         }
     }
 
@@ -138,6 +150,13 @@ public class PlayerMovement : MonoBehaviour
         isfaceMask = false;
         //Debug.Log(System.DateTime.Now);
     }
+
+    private IEnumerator ResetPower()
+    {
+        yield return new WaitForSeconds(30);
+        SanitizerGun.GetComponent<Shooting>().state = 1;
+    }
+    
 
     //Return facemask status
     public bool getFaceMask()
@@ -151,4 +170,12 @@ public class PlayerMovement : MonoBehaviour
         Time.timeScale = 0f;
 
     }
+
+    public void LevelCompleted()
+    {
+        levelCompleteUI.SetActive(true);
+        Time.timeScale = 0f;
+
+    }
+
 }

@@ -37007,6 +37007,10 @@ PrefabInstance:
       propertyPath: gameoverMenuUI
       value: 
       objectReference: {fileID: 8720509213677962327}
+    - target: {fileID: 8254459639434752492, guid: 9a64113618995bf4eb78856c79b47f73, type: 3}
+      propertyPath: levelCompleteUI
+      value: 
+      objectReference: {fileID: 8720509213677962328}
     - target: {fileID: 8254459639434752495, guid: 9a64113618995bf4eb78856c79b47f73, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -37250,5 +37254,10 @@ PrefabInstance:
 --- !u!1 &8720509213677962327 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1479659961745351899, guid: 31543f8ef71081440a6d98bfeaa11dac, type: 3}
+  m_PrefabInstance: {fileID: 8720509213677962326}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &8720509213677962328 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2144154185, guid: 31543f8ef71081440a6d98bfeaa11dac, type: 3}
   m_PrefabInstance: {fileID: 8720509213677962326}
   m_PrefabAsset: {fileID: 0}
