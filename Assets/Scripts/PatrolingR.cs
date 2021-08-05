@@ -9,6 +9,8 @@ public class PatrolingR : MonoBehaviour
 
     public Vector2 boundaries = new Vector2(-4.0f, 4.0f);
 
+    private GameObject outTile;
+
     // Update is called once per frame
     void Update()
     {
@@ -25,5 +27,16 @@ public class PatrolingR : MonoBehaviour
             //Debug.Log("Transform read");
         }
 
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.gameObject.tag == "Antidote")
+        {
+            Destroy(collision.gameObject);
+            outTile = transform.Find("VirusM").gameObject;
+            Destroy(outTile);
+            //Debug.Log("Cured");
+        }
     }
 }

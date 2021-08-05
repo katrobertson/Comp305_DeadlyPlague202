@@ -40,6 +40,8 @@ public class AlienShipMovements : MonoBehaviour
     public Transform SafePos4;
     public Transform SafePos5;
 
+    public GameObject antidote;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -93,9 +95,11 @@ public class AlienShipMovements : MonoBehaviour
         currentHealth = currentHealth - damage_level;
         healthbar.SetHealth(currentHealth);
         if (currentHealth <= 0)
-        {
+        { 
+            antidote.SetActive(true);
+            antidote.transform.position = transform.position;
             Destroy(gameObject);
-            LevelCompleted();
+            //LevelCompleted();
         }
         else if (currentHealth <= 10)
         {
@@ -128,8 +132,9 @@ public class AlienShipMovements : MonoBehaviour
 
     public void LevelCompleted()
     {
+        
         levelCompleteUI.SetActive(true);
-        Time.timeScale = 0f;
+        //Time.timeScale = 0f;
 
     }
 

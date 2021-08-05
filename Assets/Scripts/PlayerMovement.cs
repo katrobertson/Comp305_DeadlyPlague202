@@ -39,11 +39,12 @@ public class PlayerMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        miniMap.SetActive(false);
+        //miniMap.SetActive(false);
         healthbar.SetMaxHealth(maxHealth);
         currentHealth = maxHealth;
         //SanitizerGun.SetActive(false);
         //End.SetActive(false);
+        Time.timeScale = 1f;
     }
 
     // Update is called once per frame
@@ -122,7 +123,7 @@ public class PlayerMovement : MonoBehaviour
             Destroy(collision.gameObject);
             Groceries += 1;
             GroceriesCollect.text = (Groceries + "/10");
-            if (Groceries > 10)
+            if (Groceries >= 10)
             {
                 End.SetActive(true);
             }
