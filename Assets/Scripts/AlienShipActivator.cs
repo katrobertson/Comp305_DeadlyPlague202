@@ -4,18 +4,6 @@ using UnityEngine;
 
 public class AlienShipActivator : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
     public GameObject Alienship;
 
     private void OnCollisionEnter2D(Collision2D collision)

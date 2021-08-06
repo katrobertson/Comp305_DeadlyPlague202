@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2386841707659075736}
   - component: {fileID: 4733542487299803189}
   - component: {fileID: 8844880935628045692}
+  - component: {fileID: 2611407991826456665}
   m_Layer: 0
   m_Name: Antidote
   m_TagString: Antidote
@@ -72,7 +73,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 6
+  m_SortingOrder: 4
   m_Sprite: {fileID: 21300000, guid: 6d95d875899a12946ab33f983b93125e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -131,3 +132,16 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &2611407991826456665
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5382645197273160210}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8a13e24f755f91459b945283695e9ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hiteffect: {fileID: 8392616574202488891, guid: 154dc3dfaeb254844910f31d24f4c31c, type: 3}

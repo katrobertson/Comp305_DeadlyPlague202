@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PatrolingR : MonoBehaviour
 {
@@ -10,7 +11,7 @@ public class PatrolingR : MonoBehaviour
     public Vector2 boundaries = new Vector2(-4.0f, 4.0f);
 
     private GameObject outTile;
-
+    public GameObject PeopleCured;
     // Update is called once per frame
     void Update()
     {
@@ -33,10 +34,12 @@ public class PatrolingR : MonoBehaviour
     {
         if(collision.gameObject.tag == "Antidote")
         {
-            Destroy(collision.gameObject);
             outTile = transform.Find("VirusM").gameObject;
             Destroy(outTile);
-            //Debug.Log("Cured");
+            PeopleCured.GetComponent<PeopleCured>().peoplecured();
+            //PeopleCured.peoplecured();
         }
     }
+
+    
 }

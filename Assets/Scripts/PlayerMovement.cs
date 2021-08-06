@@ -93,6 +93,7 @@ public class PlayerMovement : MonoBehaviour
         
         if (collision.gameObject.tag == "Enemy1")
         {
+            SoundManager.PlaySound("hurt");
             currentHealth = currentHealth - 10;
             healthbar.SetHealth(currentHealth);
             if (currentHealth <= 0)
@@ -103,6 +104,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (collision.gameObject.tag == "EnemyDanger")
         {
+            SoundManager.PlaySound("hurt");
             currentHealth = currentHealth - 50;
             healthbar.SetHealth(currentHealth);
             if (currentHealth <= 0)
@@ -113,6 +115,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (collision.gameObject.tag == "Mask")
         {
+            SoundManager.PlaySound("collect");
             Destroy(collision.gameObject);
             isfaceMask = true;
             StartCoroutine(ResetMask());
@@ -120,6 +123,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (collision.gameObject.tag == "Groceries")
         {
+            SoundManager.PlaySound("collect");
             Destroy(collision.gameObject);
             Groceries += 1;
             GroceriesCollect.text = (Groceries + "/10");
@@ -131,16 +135,24 @@ public class PlayerMovement : MonoBehaviour
 
         if (collision.gameObject.tag == "SanitizerBlue")
         {
+            SoundManager.PlaySound("collect");
             Destroy(collision.gameObject);
             SanitizerGun.GetComponent<Shooting>().state = 1;
         }
 
         if (collision.gameObject.tag == "SanitizerGreen")
         {
+            SoundManager.PlaySound("collect");
             Destroy(collision.gameObject);
             SanitizerGun.GetComponent<Shooting>().state = 2;
             StartCoroutine(ResetPower());
 
+        }
+        if (collision.gameObject.tag == "AntidotePot")
+        {
+            SoundManager.PlaySound("collect");
+            //Destroy(collision.gameObject);
+            SanitizerGun.GetComponent<Shooting>().state = 3;
         }
     }
 
@@ -154,7 +166,7 @@ public class PlayerMovement : MonoBehaviour
 
     private IEnumerator ResetPower()
     {
-        yield return new WaitForSeconds(30);
+        yield return new WaitForSeconds(15);
         SanitizerGun.GetComponent<Shooting>().state = 1;
     }
     

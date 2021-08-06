@@ -7,5 +7,6 @@ public class EndStory : MonoBehaviour
     public void CloseStoryboard()
     {
         gameObject.SetActive(false);
+        Time.timeScale = 1f;
     }
 }

@@ -5,18 +5,33 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     public GameObject hiteffect;
-    public AudioSource explosion;
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        GameObject effect = Instantiate(hiteffect, transform.position, Quaternion.identity);
-        Destroy(effect, 0.5f);
-        Destroy(gameObject);
-        explosion.Play();
+        if (collision.gameObject.tag != "Player")
+        {
+            Destroy(gameObject);
+        }
+            
 
         if (collision.gameObject.tag == "Enemy1")
         {
+            SoundManager.PlaySound("enemyDeath");
+            GameObject effect = Instantiate(hiteffect, transform.position, Quaternion.identity);
+            Destroy(effect, 0.5f);
             Destroy(collision.gameObject);
+        }
+        else if(collision.gameObject.tag == "AlienSpaceShip")
+        {
+            SoundManager.PlaySound("enemyDeath");
+            GameObject effect = Instantiate(hiteffect, transform.position, Quaternion.identity);
+            Destroy(effect, 0.5f);
+        }
+        else if (collision.gameObject.tag == "EnemyDanger")
+        {
+            SoundManager.PlaySound("enemyDeath");
+            GameObject effect = Instantiate(hiteffect, transform.position, Quaternion.identity);
+            Destroy(effect, 0.5f);
         }
 
     }

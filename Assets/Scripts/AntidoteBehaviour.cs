@@ -5,12 +5,12 @@ using UnityEngine;
 public class AntidoteBehaviour : MonoBehaviour
 {
     public GameObject SanitizerGun;
+    public GameObject CuredPeople;
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Player")
         {
-            Destroy(gameObject);
-            SanitizerGun.GetComponent<Shooting>().state = 3;
+            CuredPeople.SetActive(true);
         }
     }
 }

@@ -99,7 +99,7 @@ public class AlienShipMovements : MonoBehaviour
             antidote.SetActive(true);
             antidote.transform.position = transform.position;
             Destroy(gameObject);
-            //LevelCompleted();
+            LevelCompleted();
         }
         else if (currentHealth <= 10)
         {
@@ -134,7 +134,7 @@ public class AlienShipMovements : MonoBehaviour
     {
         
         levelCompleteUI.SetActive(true);
-        //Time.timeScale = 0f;
+        Time.timeScale = 0f;
 
     }
 

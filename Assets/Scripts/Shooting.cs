@@ -27,6 +27,7 @@ public class Shooting : MonoBehaviour
 
     void Shoot()
     {
+        SoundManager.PlaySound("fire");
         if (state == 1)
         {
             GameObject bullet = Instantiate(bulletPrefab1, firePoint.position, firePoint.rotation);
